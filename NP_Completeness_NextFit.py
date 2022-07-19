@@ -1,0 +1,23 @@
+import time
+start_time = time.time()
+
+def next_fit(weight, c):
+    res = 0
+    rem = c
+    for _ in range(len(weight)):
+        if rem >= weight[_]:
+            rem = rem - weight[_]
+        else:
+            res += 1
+            rem = c - weight[_]
+    return res
+ 
+
+weight = [2, 5, 4, 7, 1, 3, 8]
+c = 10
+ 
+print("Number of bins required in Next Fit:",
+                           next_fit(weight, c))
+
+
+print("--- %s seconds ---" % (time.time() - start_time))
